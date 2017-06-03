@@ -1,0 +1,36 @@
+cps (180/60/4)
+
+
+d1 $ stack [
+  slow 4 $ degradeBy 0.2 $ n "[c a f e*2]*2"
+  # s "arpy"
+  # release "0.3"
+  # delay "0.5"
+  # delayfeedback "0.1"
+  # delaytime "0.5"
+  # orbit "0"
+,
+  sound (samples "click*8" (run 12))
+  # release "0.3"
+  # delay "0.5"
+  # delayfeedback "0.1"
+  # delaytime "0.5"
+  # orbit "1"
+,
+  s $ density 1 $ "bd"
+,
+  degradeBy 0.5 $ s "bass1*4"
+  # up "8"
+  # gain "1"
+  # n "5"
+  # end "0.5"
+  |*| up "[0 12 0 5 0]/8"
+,
+  s "[hh*4 hh*2]?"
+  # gain "1.2"
+,
+  s "bd*2?"
+  # gain "1.2"
+,
+ s "cp?"
+] # nudge "0.3"
