@@ -1,16 +1,21 @@
 cps (110/120)
 
 -- bass 1: af1 c2 f2 d2 f1, af1 c2 f2 f1 g1
-d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "g1 ~ ~" # s "supersaw" # sustain "2.7" # gain "0.7"
+d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "g1 ~ ~" # s "supersaw" # sustain "2" # gain "0.7"
 
-d1 $ every 4 $ slow 2 $ n "[af1] [c2] [f2] [d2] [f1]" # s "supersaw" # sustain "2.7" # gain "0.7"
-d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "[g1 ~ ~ g2 ~ ~ g2 ~ ~ g2 ~ ~ af2 ~ ~]/6" # s "supersaw" # sustain "2.7" # gain "0.7"
-d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "af2 ~ ~" # s "supersaw" # sustain "2" # gain "0.75"
-d1 silence
+d4 $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
+  # s "jx"
+  # gain "0.65"
+  # cutoff (sine1 * 1600 + 500)
+  # delay "0.5"
+  # delayfeedback "0.2"
+  # delaytime "0.5"
+  # orbit "1"
+
 
 -- drum 1
 d2 $ stack [
-  slow 2 $ n "0" # s "super808" # sustain "0.5" # gain "0.9",
+  slow 2 $ n "0" # s "super808" # sustain "0.6" # gain "0.9",
   slow 2 $ n "~ 5 ~ ~" # s "super808" # gain "0.8" # sustain "0.3",
   slow 2 $ s "~ cp ~ ~" # gain "0.8",
   s "superhat*2" # gain "0.65" # sustain "0.2",
