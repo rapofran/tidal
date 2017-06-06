@@ -5,7 +5,16 @@ d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "g1 ~ ~" # s "supersaw" #
 
 d4 $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
   # s "jx"
-  # gain "0.65"
+  # gain "0.70"
+  # cutoff (sine1 * 1600 + 500)
+  # delay "0.5"
+  # delayfeedback "0.2"
+  # delaytime "0.5"
+  # orbit "1"
+
+d4 $ iter "2 4" $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
+  # s "jx"
+  # gain "0.70"
   # cutoff (sine1 * 1600 + 500)
   # delay "0.5"
   # delayfeedback "0.2"
@@ -15,19 +24,19 @@ d4 $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d
 
 -- drum 1
 d2 $ stack [
-  slow 2 $ n "0" # s "super808" # sustain "0.6" # gain "0.9",
-  slow 2 $ n "~ 5 ~ ~" # s "super808" # gain "0.8" # sustain "0.3",
-  slow 2 $ s "~ cp ~ ~" # gain "0.8",
-  s "superhat*2" # gain "0.65" # sustain "0.2",
-  slow 2 $ sound "~ [[~ fs:6] ~] ~ ~" # gain "0.7" # sustain "0.8",
-  slow 2 $ n "~ ~ f5 ~" # s "supergong" # gain "0.5" # sustain "1"
+  slow 2 $ n "0" # s "super808" # sustain "0.6" # gain "1",
+  slow 2 $ n "~ 5 ~ ~" # s "super808" # gain "0.9" # sustain "0.3",
+  slow 2 $ s "~ cp ~ ~" # gain "0.9",
+  s "superhat*2" # gain "0.75" # sustain "0.2",
+  slow 2 $ sound "~ [[~ fs:6] ~] ~ ~" # gain "0.8" # sustain "0.8",
+  slow 2 $ n "~ ~ f5 ~" # s "supergong" # gain "0.6" # sustain "1"
 ]
 
 -- drum 2
 d3 $ stack [
-  slow 2 $ n "[0 0] ~ [0 0] ~" # s "superkick" # gain "0.95" # sustain "2",
-  slow 2 $ n "~ c5 ~ c5" # s "superhat" # gain "0.95" # sustain "0.8",
-  slow 4 $ sound "~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3]] ~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3*3]]" # gain "0.8"
+  slow 2 $ n "[0 0] ~ [0 0] ~" # s "superkick" # gain "1" # sustain "2",
+  slow 2 $ n "~ c5 ~ c5" # s "superhat" # gain "1" # sustain "0.8",
+  slow 4 $ sound "~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3]] ~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3*3]]" # gain "0.9"
 ]
 
 
