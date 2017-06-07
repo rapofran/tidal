@@ -1,29 +1,8 @@
 cps (110/120)
 
--- bass 1: af1 c2 f2 d2 f1, af1 c2 f2 f1 g1
-d1 $ every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "g1 ~ ~" # s "supersaw" # sustain "2" # gain "0.7"
-
-d4 $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
-  # s "jx"
-  # gain "0.70"
-  # cutoff (sine1 * 1600 + 500)
-  # delay "0.5"
-  # delayfeedback "0.2"
-  # delaytime "0.5"
-  # orbit "1"
-
-d4 $ iter "2 4" $ slow 2 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
-  # s "jx"
-  # gain "0.70"
-  # cutoff (sine1 * 1600 + 500)
-  # delay "0.5"
-  # delayfeedback "0.2"
-  # delaytime "0.5"
-  # orbit "1"
-
-
 -- drum 1
 d2 $ stack [
+  --every 4 (jux (# accelerate "0.045")) $ slow 2 $ n "g1 ~ ~" # s "supersaw" # sustain 2 # gain 0.65,
   slow 2 $ n "0" # s "super808" # sustain "0.6" # gain "1",
   slow 2 $ n "~ 5 ~ ~" # s "super808" # gain "0.9" # sustain "0.3",
   slow 2 $ s "~ cp ~ ~" # gain "0.9",
@@ -39,5 +18,26 @@ d3 $ stack [
   slow 4 $ sound "~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3]] ~ [~ [fs:3 fs:6]] ~ [~ [fs:4  fs:3*3]]" # gain "0.9"
 ]
 
+d3 silence
+
+-- bass 1: af1 c2 f2 d2 f1, af1 c2 f2 f1 g1 
+
+d4 $ slow 4 $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
+  # s "jx"
+  # gain 0.7
+  # cutoff (sine1 * 1600 + 500)
+  # delay "0.5"
+  # delayfeedback "0.2"
+  # delaytime "0.5"
+  # orbit "1"
+
+d4 $ slow 4 $ brak $ every 4 (jux (# accelerate "0.045")) $ n "[af1] ~ [c2] ~ [f2] ~ [d2] ~ [f1*2] ~ ~"
+  # s "jx"
+  # gain "0.70"
+  # cutoff (sine1 * 1600 + 500)
+  # delay "0.5"
+  # delayfeedback "0.2"
+  # delaytime "0.5"
+  # orbit "1"
 
 hush
