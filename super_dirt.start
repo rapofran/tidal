@@ -1,28 +1,10 @@
-// works like a champ
-(
-  "-> Loading SuperDirt".postln;
-  s.options.memSize = 8192 * 128;
-  s.options.numBuffers = 1024 * 128;
-  s.options.numOutputBusChannels = 2;
-  s.waitForBoot {
-    ~dirt = SuperDirt(2, s);
-    s.sync;
-    ~dirt.start(57120, [0, 0]);
-    3.wait;
-    ~dirt.loadSoundFiles;
-    1.wait;
-    "-> SuperDirt Loaded".postln;
-  };
-)
-
-// 8 channels, doesnt work yet!
 (
   "-> Loading SuperDirt".postln;
   s.options.memSize = 8192 * 128;
   s.options.numBuffers = 1024 * 128;
   s.options.numOutputBusChannels = 8;
   s.waitForBoot {
-    ~dirt = SuperDirt(8, s);
+    ~dirt = SuperDirt(2, s);
     s.sync;
     ~dirt.start(57120, [0, 2, 4, 6]);
     3.wait;
@@ -33,14 +15,7 @@
 )
 
 
-
-// Server.default.makeGui
-
-// trying to record multichannel
-Server.default.makeGui
-s.boot;
-
 s.recChannels = 8;
-s.prepareForRecord
+s.prepareForRecord;
 s.record;
 s.stopRecording
