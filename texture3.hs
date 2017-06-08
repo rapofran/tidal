@@ -22,20 +22,20 @@ d2 $ stack [
   slow 2 $ n "[~ [~ 0]]" # s "super808" # sustain "0.5" # gain "1",
   slow 6 $ s "fs:1 ~ fs:9 ~ fs:1 ~ fs:9 ~ fs:1 ~ [fs:1 fs:7] ~" # gain "1.1",
   sound "~ [fs:3 fs:3]" # gain "1" # sustain "0.5"
-] # orbit 1
+]
 
 -- play with fs:3*3?
 d2 $ stack [
   slow 2 $ n "[~ [~ 0]]" # s "super808" # sustain "0.5" # gain "1.1",
   slow 6 $ s "fs:1 ~ fs:9 ~ fs:1 ~ fs:9 ~ fs:1 ~ [fs:1 fs:7] ~" # gain "1.2",
   sound "~ [fs:3 [fs:3 fs:3]]" # gain "1" # sustain "0.5"
-] # orbit 1
+]
 
 -- end
 d2 $ slow 2 $ stack [
   slow 2 $ n "[~ [~ 0]]" # s "super808" # sustain "0.5" # gain "1.1",
   slow 6 $ s "fs:1 ~ fs:9 ~ fs:7 ~ fs:9 ~ fs:1 ~ fs:7 ~" # gain "1.3",
   sound "~ [fs:3 fs:3]" # gain "1" # sustain "0.5"
-] # orbit 1
+]
 
 hush
