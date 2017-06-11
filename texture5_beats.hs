@@ -1,13 +1,8 @@
 cps (130/120)
 
-d1 $ sound (samples "click*7" (run 12)) # gain 0.8
-
-d2 $ stut 4 0.5 0.2 $ sound "bd sn" # gain 0.8
-
-d3 $ s "bd:3*2" # gain 0.9
-d3 silence
-
-d1 $ n (toScale [0, 4, 7] "0 1 2 3 4") # sound "supermandolin"
+d7 $ juxBy 0.6 (|*| speed 2) $ loopAt "<4 6 2 3>" $ chop 12 $ sound "fm:14" # gain 0.7 # orbit 0
+d4 $ someCycles (# crush 3) $ n "0 .. 7" # sound "feel" # speed 2 # gain 0.8 # hcutoff 300 # orbit 1
+d2 $ loopAt 2 $ sound "breaks125" # gain 1 # orbit 2
+d5 $ s "bd:2*2"
 
 hush
-
