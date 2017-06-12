@@ -2,7 +2,7 @@ cps (60/120)
 
 d1 $ stack [
   slow 8 $ n "g3 f3" # s "supercomparator" # gain "0.7" # sustain "8",
-  slow 4 $ every 4 (jux (rev)) $ brak $ n "b5 ~ ~ c5 a5 ~ ~"
+  slow 4 $ every 4 (jux (rev)) $ n "b5 ~ ~ c5 a5 ~ ~"
     # s "supercomparator"
     # gain "0.6"
     # sustain "5 4 3 2"
@@ -14,8 +14,8 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.6"
     # sustain "5 4 3 2"
-    # cutoff (sine1  * 2000)
-    # resonance 0.2
+    # cutoff (slow 3 sine1  * 2000)
+    # resonance 0.1
 ] # delay 0.25 # delayfeedback 0.19 # delaytime 0.2 # room 0.45 # size 0.45 # orbit 0
 
 d1 $ stack [
@@ -24,8 +24,8 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.6"
     # sustain "5 4 3 2"
-    # cutoff (sine1  * 1000)
-    # resonance 0.2
+    # cutoff (slow 4 sine1  * 1000)
+    # resonance 0.1
 ] # delay 0.25 # delayfeedback 0.19 # delaytime 0.2 # room 0.45 # size 0.45 # orbit 0
 
 
@@ -47,7 +47,7 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.56"
     # sustain "5 4 3 2"
-    # cutoff (sine1  * 1000)
+    # cutoff (slow 2 sine1  * 1000)
     # resonance 0.15
 ] # delay 0.5 # delayfeedback 0.5 # delaytime 0.9 # room 0.7 # size 0.5 # orbit 0
 
@@ -64,7 +64,7 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.56"
     # sustain "5 4 3 2"
-    # cutoff (sine1  * 1000)
+    # cutoff (slow 3 sine1  * 1000)
     # resonance 0.15
 ] # delay 0.5 # delayfeedback 0.5 # delaytime 0.9 # room 0.5 # size 0.5 # orbit 0
 

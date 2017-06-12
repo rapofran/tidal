@@ -1,26 +1,26 @@
 -- 3/6/17
 cps(120/120)
 
-d1 $ slow 2 $ n ("d7 a7 [c6 e7] e7") # sound "rash" # gain "0.8" # orbit 1
-d1 $ slow 2 $ n ("d7 a7 [c6 e7] e7") # sound "rash" # gain "0.8" # room 0.1 # size 0.1 # orbit 1
-d1 $ n (off 0.25 (+7) $ slow 2 $ "d7 a7 [c6 e7] e6") # sound "rash" # gain "0.8" # room 0.1 # size 0.1 # orbit 1
+d1 $ slow 2 $ n ("d7 a7 [c6 e7] e7") # sound "rash" # gain "0.8" # orbit 0
+d1 $ slow 2 $ n ("d7 a7 [c6 e7] e7") # sound "rash" # gain "0.8" # room 0.1 # size 0.1 # orbit 0
+d1 $ n (off 0.25 (+7) $ slow 2 $ "d7 a7 [c6 e7] e6") # sound "rash" # gain "0.8" # room 0.1 # size 0.1 # orbit 0
 
 -- prog
-d1 $ n (off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6 e7] e6") # sound "rash" # gain "0.79" # room 0.1 # size 0.1 # orbit 1
-d1 $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.78" # room 0.1 # size 0.1 # orbit 1
-d1 $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.77" # room 0.1 # size 0.1 # orbit 1
-d1 $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.75" # cutoff (sine1  * 6000 + 400) # resonance 0.1 # room 0.2 # size 0.2 # orbit 1
+d1 $ n (off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6 e7] e6") # sound "rash" # gain "0.79" # room 0.1 # size 0.1 # orbit 0
+d1 $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.78" # room 0.1 # size 0.1 # orbit 0
+d1 $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.77" # room 0.1 # size 0.1 # orbit 0
+d1 $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain "0.75" # cutoff (slow 3 sine1  * 6000 + 400) # resonance 0.1 # room 0.2 # size 0.2 # orbit 0
 
 -- # play with cutoff 1000, # cutoff (sine1  * 2000) # resonance 0.2
-d1 $ jux rev $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain 0.72 # cutoff (sine1  * 6000 + 400) # resonance 0.2 # room 0.2 # size 0.2 # orbit 1
+d1 $ jux rev $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain 0.72 # cutoff (slow 3 sine1  * 6000 + 400) # resonance 0.2 # room 0.2 # size 0.2 # orbit 0
 
 -- ending get bigger the room and size
 -- possible ending, play with this
-d1 $ degradeBy 0.55 $ jux rev $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain 0.6 # cutoff (sine1  * 5000 + 200) # resonance 0.2 # room 1 # size 0.8 # orbit 1
+d1 $ degradeBy 0.35 $ jux rev $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 (+12) $ off 0.25 (+7) $ slow 2 $ "d7(3,8) a7 [c6(3,8,2) e7*2] e6(3,8)") # sound "rash" # gain 0.6 # cutoff (slow 3 sine1  * 5000 + 200) # resonance 0.2 # room 1 # size 0.8 # orbit 0
 
 
 -- fs:7 -> reverb
-d2 $ slow 6 $ s "fs:7" # gain 1.1 # orbit 2
+d2 $ slow 6 $ s "fs:7" # gain 1 # orbit 2
 
 d2 $ stack [
   slow 2 $ n "[~ [~ 0]]" # s "super808" # hpf 70 # sustain 0.5 # gain 1.1,
