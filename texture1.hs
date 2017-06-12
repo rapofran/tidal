@@ -1,11 +1,14 @@
 -- ordenar esto 02/06/2017
-cps(115/120)
+cps(112/120)
 
--- # cutoff (sine1  * 5000 + 200) # resonance 0.3
+-- # cutoff (slow 6 sine1  * 2000 + 200) # resonance 0.3
 d1 $ jux (# accelerate "-0.1") $ n "[-2 [-1 0]] [5*2 16]" # s "super808" # gain "0.9" # hpf 80 # orbit 0
+d1 $ jux (# accelerate "-0.1") $ n "[-2 [-1 0]] [5*2 16]" # s "super808" # gain "0.9" # hpf 80 # cutoff (slow 6 $ sine1  * 2000 + 200) # resonance 0.3 # orbit 0
 
--- # cutoff (sine1  * 5000) # resonance 0.2
+-- # cutoff (slow 3 sine1  * 5000) # resonance 0.1
 d2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # orbit 1
+d2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # cutoff (slow 3 sine1  * 4000) # resonance 0.1 # orbit 1
+d1 silence
 
 
 d3 $ s "supergong*8" # n "[c4 c5 5 3]/8" # sustain "1 0.25 2 1" # gain 0.6
@@ -28,5 +31,5 @@ d5 $ degradeBy 0.2 $ whenmod 8 5 (# speed 0.375) $ slow 2 $ n "e2 ~ ~ ~ ~ ~ ~ g3
 d6 $ slow 2 $ n "e2(3,8) ~ g3*3 f2" # s "jx" # gain 0.8 # orbit 3
 d6 $ degradeBy 0.5 $ jux rev $ slow 2 $ n "e2(3,8) ~ g3(3,4) f2" # s "jx" # gain 0.8 # orbit 3
 
-d4 silence
+d6 silence
 hush
