@@ -14,6 +14,8 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.6"
     # sustain "5 4 3 2"
+    # cutoff (sine1  * 2000)
+    # resonance 0.2
 ] # delay 0.25 # delayfeedback 0.19 # delaytime 0.2 # room 0.45 # size 0.45 # orbit 0
 
 d1 $ stack [
@@ -22,6 +24,8 @@ d1 $ stack [
     # s "supercomparator"
     # gain "0.6"
     # sustain "5 4 3 2"
+    # cutoff (sine1  * 1000)
+    # resonance 0.2
 ] # delay 0.25 # delayfeedback 0.19 # delaytime 0.2 # room 0.45 # size 0.45 # orbit 0
 
 
