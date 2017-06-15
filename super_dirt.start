@@ -10,6 +10,8 @@
     3.wait;
     ~dirt.loadSoundFiles;
     1.wait;
+    ("/home/frank/tidal/withsublime/synths.scd").load;
+    1.wait;
     "-> SuperDirt Loaded".postln;
   };
 )

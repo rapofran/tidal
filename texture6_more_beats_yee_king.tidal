@@ -1,34 +1,108 @@
 -- 11/6/17
 cps (140/120)
 
-d4 $ slow 1.5 $ degradeBy 0.15 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>")
+d2 $ slow 1.5 $ degradeBy 0.15 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>")
   # sound "jvbass"
   # gain 0.8
-  # room 0.4
+  # room 0.2
   # size 0.1
   # orbit 0
 
-d1 $ sound "amencutup*3" # n (irand 16) # orbit 1
+d2 $ slow 2 $ sound (samples "click*8" (run 12))
+  # orbit 1
+
+d3 $ n "cf3 d5*2" # s "pium" # gain 1.1
+
+do
+  d2 $ slow 2 $ sound (samples "click*8" (run 12))
+    # orbit 1 # gain 1.1
+  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4" # sustain "1 0.5 0.25" # gain 1.1 # orbit 2
+
+d3 silence
+hush
+
+d1 $ within (0.5, 1) (# gain "0.8") $ sound "bd*4"
+d4 $ slow 2 $ gap 32 $ sound "fm:14" # gain 0.7 # orbit 2
+d3 $ slow 3 $ jux rev $ striateL' 12 0.05 5 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.7 # orbit 2
+d3 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.7 # orbit 2
+d3 $ jux rev $ sound "fm:14" # speed "<5 5 5 4 ~>" # gain 0.7 # orbit 2
+
+hush
+
+d2 $ slow 1.5 $ degradeBy 0.15 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>")
+  # sound "jvbass"
+  |+| n "48"
+  # gain 0.8
+  # room 0.2
+  # size 0.1
+  # orbit 0
+
+
+d1 $ chop 3 $ sound "amencutup*3" # n (irand 16) # orbit 1 -- nice defor
 d1 $ someCycles (fast 2) $ sound "amencutup*2" # n (irand 16) # crush 4 # orbit 1
 d1 $ slow 2 $ n (run "<4 8 4 6>") # sound "amencutup" # orbit 1
 d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>") # sound "amencutup" # orbit 1
+
 d1 $ iter 4 $ every 9 (density 2) $ slow 4 $ n "0 .. 15" # sound "amencutup" # orbit 1
 
-d1 $ every 3 (slow 3) $ n (run 8) # s "amencutup" # orbit 1
+-- these
+-- 1º
+d1 $ iter 4 $ slow 3 $ n "0 .. 15" # sound "amencutup"
+  # gain 1.1
+  # pan (density 2 sine)
+  # room 0.1
+  # size 0.1
+  # orbit 2
+
+-- 2º
+d1 $ iter 4 $ every 3 (chop 2) $ slow 3 $ n "0 .. 15" # sound "amencutup"
+  # gain 1.1
+  # pan (density 2 sine)
+  # room 0.1
+  # size 0.1
+  # orbit 1
+
+d1 $ iter 4 $ chop "<5 12 2 1>" $ slow 3 $ n "0 .. 15" # sound "amencutup"
+  # gain 1.1
+  # pan (density 2 sine)
+  # room 0.1
+  # size 0.1
+  # orbit 1
+
+d1 silence
+
+-- nice too!
+d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
+  # sound "amencutup"
+  # gain 1.1
+  # pan (density 3 sine)
+  # orbit 1
+
+
+d1 $ iter 4 $ slow 3 $ n (irand 16) # sound "amencutup"
+  # gain 1.1
+  # pan (density 3 sine)
+  # orbit 1
+
+d1 $ every 3 (slow 3) $ n (run 8) # s "amencutup"
+  # gain 1.1
+  # pan (density 3 sine)
+  # orbit 1
+
 
 
  -- # crush 4
 
 do
-  d2 $ s "fs:1" # gain 0.7 # orbit 1
-  d3 $ s "bd*2" # hpf 100 # gain 0.7 # orbit 1
+  d5 $ s "fs:1*2" # gain 0.8 # orbit 2
+  d6 $ s "bd*2" # hpf 100 # gain 0.9 # orbit 1
 
-d2 silence
+d6 silence
 
 -- step 2
 d4 $ slow 1.5 $ degradeBy 0.5 $ jux rev $ n (off 0.125 (+12) $ off 0.25 (+7) $ slow 4 $ "d6(3,8) e7(3,8) f7(3,8) g7(3,8)" + "<0 7 12 2>")
   # sound "jvbass"
-  # gain 0.8
+  # gain 0.7
   |+| n "-48"
   # hpf (slow 4 $ sine * 800 + 50)
   # hpq 0.3

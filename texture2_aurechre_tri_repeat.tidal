@@ -21,25 +21,24 @@ d3 $ stack [
 
 d1 silence
 
-d5 $ slow 4 $ n "[~ c3] ~ [~ gs2] ~ ~ [g2] ~ ~ ~ ~" # s "superpwm" # sustain "0.9 0.9 1" # gain 1 # orbit 4
-d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [g2] ~ ~ ~ ~" # s "superpwm" # sustain 0.7 # gain 1 # orbit 4
-d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [g2] ~ [g2 g3] ~ ~" # s "superpwm" # sustain 0.5 # gain 1 # orbit 4
-d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [gs2 g2] ~ g3 ~ ~" # s "superpwm" # sustain 0.5 # gain 1 # orbit 4
+d5 $ slow 4 $ n "[~ c3] ~ [~ gs2] ~ ~ [g2] ~ ~ ~ ~" # s "superpwm" # sustain "0.9 0.9 1" # room 0.2 # size 0.15 # gain 1 # orbit 3
+d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [g2] ~ ~ ~ ~" # s "superpwm" # sustain 0.7 # room 0.2 # size 0.15 # gain 1 # orbit 3
+d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [g2] ~ [g2 g3] ~ ~" # s "superpwm" # sustain 0.5 # room 0.2 # size 0.15 # gain 1 # orbit 3
+d5 $ slow 4 $ n "[c2 c3] ~ [~ gs2] ~ ~ [g2 g2] ~ g3 ~ ~" # s "superpwm" # sustain 0.5 # room 0.2 # size 0.15 # gain 1 # orbit 3
 
 -- different sustain
 -- add density 2 (or 4)
 -- degradeBy 0.3 y 0.6
-d4 $ density 2 $ degradeBy 0.3 $ density 2 $ every 4 (jux (rev)) $ n "<[f4 g4] [ds4 f4] [c4 ds4] [~]>"
+d4 $ density 2 $ degradeBy 0.3 $ every 4 (jux (rev)) $ n "<[f4,g4] [f4 g4] [ds4 f4] [c4 ds4] [~]>"
   # s "superpwm"
   # sustain 0.5
   # gain 0.7
-  # delay "0.5"
-  # delayfeedback "0.2"
-  # delaytime "0.2"
+  # delay 0.5
+  # delayfeedback 0.2
+  # delaytime 0.2
   # cutoff (slow 4 sine1  * 4000)
   # resonance 0.15
   # orbit 3
-
 -- later
   # crush 3
 
@@ -54,6 +53,7 @@ do
   d7 silence
   d6 silence
   d2 $ density 2 $ sound "fs:3" # gain 1 # sustain 0.8
+
 
 
 hush
