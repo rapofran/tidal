@@ -54,6 +54,7 @@ do
     # size 0.1
     # orbit 3
 
+-- crush, long state
 do
   d5 silence
   d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
@@ -65,16 +66,17 @@ do
     # pan (density 3 sine)
     # orbit 3
 
-    -- # crush 5
-
-
 -- ending, slowing
-d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
-  # sound "amencutup"
-  # gain 1
-  # pan (density 3 sine)
-  # orbit 3
-
+do
+  d5 silence
+  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
+    # gain 1.05
+    # orbit 2
+  d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
+    # sound "amencutup"
+    # gain 1
+    # pan (density 3 sine)
+    # orbit 3
 
 -- nice ending, minimal, repetitive. maybe: stallman fits cool here
 do
@@ -103,5 +105,17 @@ do
     # size 0.4
     # gain 0.6
     # orbit 0
+
+
+-- maybe that this continue with the break
+do
+  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
+    # gain 1
+    # orbit 2
+  d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
+    # sound "amencutup"
+    # gain 0.8
+    # pan (density 3 sine)
+    # orbit 3
 
 hush
