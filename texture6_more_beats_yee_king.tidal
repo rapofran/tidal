@@ -7,7 +7,7 @@ do
   d3 $ n "cf3 d5*2" # s "pium" # gain 1.1 # orbit 1
   d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4" # gain 1.05 # orbit 2
 
-d5 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.6 # orbit 0
+d5 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.5 # orbit 0
 -- later down volume
 d5 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.4 # orbit 0
 
@@ -43,7 +43,6 @@ d1 $ iter 4 $ every 2 (chop 3) $ slow 2 $ n "0 .. 15" # sound "amencutup"
 
 -- en 3/4
 do
-  d4 silence
   d7 $ s "fs:1*2" # gain 0.7 # orbit 2
   d6 $ s "bd*2" # hpf 100 # sustain 0.5 # gain 0.9 # orbit 2
   d5 $ slow 2 $ jux rev $ chop 10 $ sound "fm:14" # speed "<3 5 4>" # gain 0.7 # orbit 0
@@ -91,8 +90,8 @@ do
     # delay 0.5
     # delayfeedback 0.25
     # delaytime 0.2
-    # room 0.3
-    # size 0.3
+    # room 0.8
+    # size 0.8
     # orbit 1
   d5 $ slow 2 $ jux rev $ chop 10 $ sound "fm:14"
     # speed "<3 5 5 4>"
@@ -101,8 +100,8 @@ do
     # delay 0.25
     # delayfeedback 0.25
     # delaytime 0.2
-    # room 0.4
-    # size 0.4
+    # room 0.9
+    # size 0.9
     # gain 0.6
     # orbit 0
 
