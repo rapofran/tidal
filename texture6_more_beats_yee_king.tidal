@@ -3,21 +3,26 @@ cps (140/120)
 
 do
   d2 $ slow 2 $ sound (samples "click*8" (run 12))
-    # orbit 1 # gain 1 # orbit 0
+    # orbit 1 # gain 1 # orbit 1
   d3 $ n "cf3 d5*2" # s "pium" # gain 1.1 # orbit 1
-  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4" # gain 1.05 # orbit 2
+  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*3" # n "[e3 ~ g3 f3]/4" # gain 1.05 # orbit 2
 
-d5 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.5 # orbit 0
--- later down volume
-d5 $ slow 2 $ jux rev $ chop 12 $ sound "fm:14" # speed "<5 5 5 4>" # gain 0.4 # orbit 0
 
-d5 silence
-d2 silence
+d5 $ degradeBy 0.2 $ slow 2 $ jux rev $ chop 10 $ sound "fm:14"
+  # speed "<5 5 5 4>"
+  # gain 0.5
+  # cutoff (slow 3 sine1  * 1000 + 500)
+  # resonance 0.25
+  # room 0.2
+  # size 0.2
+  # delay 0.5
+  # delaytime 0.35
+  # delayfeedback 0.5
+  # orbit 0
 
 hush
 
--- these: with pan
--- 1º slow 3
+-- drums, play with all
 d1 $ iter 4 $ slow 3 $ someCycles (chop 4) $ n "0 .. 15" # sound "amencutup"
   # gain 1
   # pan sine
@@ -25,7 +30,6 @@ d1 $ iter 4 $ slow 3 $ someCycles (chop 4) $ n "0 .. 15" # sound "amencutup"
   # size 0.1
   # orbit 3
 
--- 2º slow 2 (few times)
 d1 $ iter 4 $ slow 2 $ someCycles (chop 4) $ n "0 .. 15" # sound "amencutup"
   # gain 1
   # pan sine
@@ -33,7 +37,6 @@ d1 $ iter 4 $ slow 2 $ someCycles (chop 4) $ n "0 .. 15" # sound "amencutup"
   # size 0.1
   # orbit 3
 
--- 3º variation (few times)
 d1 $ iter 4 $ every 2 (chop 3) $ slow 2 $ n "0 .. 15" # sound "amencutup"
   # gain 1
   # pan (density 2 sine)
@@ -44,8 +47,8 @@ d1 $ iter 4 $ every 2 (chop 3) $ slow 2 $ n "0 .. 15" # sound "amencutup"
 -- en 3/4
 do
   d7 $ s "fs:1*2" # gain 0.7 # orbit 2
-  d6 $ s "bd*2" # hpf 100 # sustain 0.5 # gain 0.9 # orbit 2
-  d5 $ slow 2 $ jux rev $ chop 10 $ sound "fm:14" # speed "<3 5 4>" # gain 0.7 # orbit 0
+  d6 $ s "bd*2" # hpf 70 # sustain 0.5 # gain 0.9 # orbit 2
+  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4" # gain 1.05 # orbit 2
   d1 $ iter 4 $ chop "<5 12 2 1>" $ slow 3 $ n "0 .. 15" # sound "amencutup"
     # gain 1
     # pan (density 2 sine)
@@ -53,31 +56,22 @@ do
     # size 0.1
     # orbit 3
 
--- crush, long state
-do
-  d5 silence
-  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
-    # gain 1.05
-    # crush 5
-    # orbit 2
-  d1 $ iter 4 $ slow 3 $ n (irand 16) # sound "amencutup"
-    # gain 1
-    # pan (density 3 sine)
-    # orbit 3
 
 -- ending, slowing
 do
-  d5 silence
+  d7 $ s "fs:1*2" # gain 0.7 # orbit 2
+  d6 $ s "bd*2" # hpf 70 # sustain 0.5 # gain 0.9 # orbit 2
   d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
     # gain 1.05
     # orbit 2
-  d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
+  d1 $ someCycles (slow 2) $ every 3 (chop 3) $ n (run "<4 8 4 6 10 1 8 9>")
     # sound "amencutup"
     # gain 1
     # pan (density 3 sine)
     # orbit 3
 
 -- nice ending, minimal, repetitive. maybe: stallman fits cool here
+-- d5 add degradeBy 0.2
 do
   d4 silence
   d2 silence
@@ -87,9 +81,6 @@ do
   d7 silence
   d3 $ n "cf3 d5*2" # s "pium"
     # gain 1.1
-    # delay 0.5
-    # delayfeedback 0.25
-    # delaytime 0.2
     # room 0.8
     # size 0.8
     # orbit 1
@@ -99,22 +90,10 @@ do
     # resonance 0.1
     # delay 0.25
     # delayfeedback 0.25
-    # delaytime 0.2
-    # room 0.9
-    # size 0.9
+    # delaytime 0.35
+    # room 0.8
+    # size 0.8
     # gain 0.6
     # orbit 0
-
-
--- maybe that this continue with the break
-do
-  d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
-    # gain 1
-    # orbit 2
-  d1 $ someCycles (slow 2) $ n (run "<4 8 4 6 10 1 8 9>")
-    # sound "amencutup"
-    # gain 0.8
-    # pan (density 3 sine)
-    # orbit 3
 
 hush
