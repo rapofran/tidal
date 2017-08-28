@@ -8,10 +8,10 @@ d1 $ jux (# accelerate "-0.1") $ n "[-2 [-1 0]] [5*2 16]" # s "super808" # gain 
 
 -- # cutoff (slow 3 sine1  * 5000) # resonance 0.1
 d2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # orbit 1
-d2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # cutoff (slow 3 sine1  * 4000) # resonance 0.1 # orbit 1
+d2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # cutoff (slow 3 sine1  * 6000) # resonance 0.1 # orbit 1
 d2 $ degradeBy 0.2 $ sound "superhat:0*8" # sustain "0.125!6 1.2" # accelerate "[0.6 -0.6]/4" # gain "1" # cutoff (slow 3 sine1  * 4000) # resonance 0.1 # orbit 1
 
-d3 silence
+d2 silence
 
 d3 $ slow 2 $ n "0(3,8) 1 3 5*3" |+| n "-36" # s "varsaw" # gain 1.1 # orbit 2
 d3 $ s "23*4" # n "[c4 c5 5 3]/8" # sustain "0.05 1 0.1" # gain 1
