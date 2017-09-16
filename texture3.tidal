@@ -27,8 +27,8 @@ d1 $ degradeBy 0.4 $ jux rev $ off (0.25) (# s "pulse") $ n (slow 2 $ off 0.125 
 d2 $ slow 6 $ s "fs:7" # gain 1 # orbit 2
 
 d2 $ stack [
-  slow 2 $ n "[~ [~ 0]]" # s "super808" # hpf 70 # sustain 0.5 # gain 1,
-  slow 6 $ s "fs:1 ~ fs:9 ~ fs:1 ~ fs:9 ~ fs:1 ~ [fs:1 fs:7] ~" # gain 1.1,
+  slow 2 $ n "[~ [~ 0]]" # s "super808" # hpf 70 # sustain 0.5 # gain 0.9,
+  slow 6 $ s "fs:1 ~ fs:9 ~ fs:1 ~ fs:9 ~ fs:1 ~ [fs:1 fs:7] ~" # gain 1,
   sound "~ [fs:3 fs:3]" # gain 0.9 # sustain 0.5
 ] # orbit 2
 

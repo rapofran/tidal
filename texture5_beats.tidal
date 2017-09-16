@@ -1,6 +1,6 @@
 -- 11/6/17
-cps (133/120)
-
+cps (128/120)
+hush
 -- cycle 1
 d1 $ juxBy 0.6 (|*| speed 2) $ loopAt "<4 6 2 3>" $ chop 12 $ sound "fm:14" # gain 0.75 # delay 0.25 # delayfeedback 0.15 # delaytime 0.2 # room 0.15 # size 0.1 # orbit 0
 
@@ -14,6 +14,8 @@ d2 $ degradeBy 0.4 $ someCycles (# crush 3) $ n "0 .. 7" # sound "feel" # speed 
 
 d3 $ loopAt 2 $ sound "breaks125" # gain 1.1 # orbit 2
 d4 $ s "bd:2*2" # hpf 60 # gain 1 # orbit 3
+
+d4 silence
 
 -- cycle 3
 do
@@ -50,9 +52,8 @@ do
 
 do
   d3 silence
-  d4 $ s "bd:2*2" # hpf 60 # gain 0.9 # orbit 3
-  d2 $ degradeBy 0.3 $ someCycles (# crush 3) $ n "0 .. 7" # sound "feel" # speed "1.5 2 1 2.1" # gain 1 # hcutoff 300 # orbit 1
-  d1 $ degradeBy 0.15 $ juxBy 0.6 (|*| speed 2) $ loopAt "<4 6 2 3>" $ chop 12 $ sound "fm:14" # gain 0.75 # delay 0.25 # delayfeedback 0.15 # delaytime 0.2 # room 0.15 # size 0.1 # orbit 0
+  d2 $ degradeBy 0.9 $ someCycles (# crush 3) $ n "0 .. 7" # sound "feel" # speed "1.5 2 1 2.1" # gain 1 # hcutoff 300 # orbit 1
+  d1 $ degradeBy 0.3 $ juxBy 0.6 (|*| speed 2) $ loopAt "<4 6 2 3>" $ chop 12 $ sound "fm:14" # gain 0.75 # delay 0.25 # delayfeedback 0.15 # delaytime 0.2 # room 0.15 # size 0.1 # orbit 0
 
 d4 silence
 

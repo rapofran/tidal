@@ -22,6 +22,8 @@ d5 $ degradeBy 0.2 $ slow 2 $ jux rev $ chop 10 $ sound "fm:14"
 
 hush
 
+d1 silence
+
 -- drums, play with all
 d1 $ iter 4 $ slow 3 $ someCycles (chop 4) $ n "0 .. 15" # sound "amencutup"
   # gain 1
@@ -56,11 +58,10 @@ do
     # size 0.1
     # orbit 3
 
-
+d6 silence
 -- ending, slowing
 do
   d7 $ s "fs:1*2" # gain 0.7 # orbit 2
-  d6 $ s "bd*2" # hpf 70 # sustain 0.5 # gain 0.9 # orbit 2
   d4 $ whenmod 8 5 (|+| n "5 9") $ s "23*4" # n "[e3 ~ g3 f3]/4"
     # gain 1.05
     # orbit 2
